@@ -14,7 +14,8 @@ def totalvendas():
     try:
         tabela = pd.read_csv('dados.csv')
         total_vendas = tabela['Vendas'].sum()
-        resposta = {'totalvendas': total_vendas} # variavel resposta que guarda a info do total de vendas de fato
+        total_vendas_formatado = round(total_vendas, 2)  # Arredondar para 2 casas decimais
+        resposta = {'totalvendas': total_vendas_formatado} # variavel resposta que guarda a info do total de vendas de fato
     except FileNotFoundError:
         resposta = {'erro': 'Arquivo dados.csv não encontrado'}
     except KeyError:
